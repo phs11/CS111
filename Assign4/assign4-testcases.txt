@@ -1,0 +1,57 @@
+Omar Ahmadi
+Assignment 4
+
+problem 1: SmallLargest.java
+---------
+Test case 1:
+Inputs:
+termNum = -1,num = 1,2,3,4,5,6,7,8,9,-1
+Expected output:
+large = 9, small = 1
+Actual output:
+large = 9.0, small = 1.0
+
+
+Test case 2:
+Inputs:
+termNum = 100, num = -2.5, -4, -3.2, -8.9, 100
+Expected output:
+large = -2.5, small = -8.9
+Actual output:
+large = -2.5, small = -8.9
+
+Problem 2: LuckySevens.java
+---------
+Test case 1:
+Inputs:
+lowRange = 1 upRange = 100
+Expected output:
+count = 20
+Actual output:
+count = 20
+
+Test case 2:
+Inputs: 
+lowRange = -150 upRange = -100
+Expected output:
+count = 5
+Actual output:
+count = 5
+
+Problem 3: NthPrime.java
+---------
+Test case 1:
+Inputs:
+n = 100
+Expected output:
+nextPrime = 541
+Actual output: 
+nextPrime = 541
+
+Test case 2:
+Inputs:
+n = 3
+Expected output:
+nextPrime = 5
+Actual output:
+nextPrime = 5

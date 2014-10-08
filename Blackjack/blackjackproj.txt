@@ -1,0 +1,172 @@
+ Instructions
+
+CS111 Fall 2012 Project Description
+
+For this assignment, you will implement a video card game. The game is a simplified version of blackjack, where some of the more complex rules have been eliminated.
+
+Blackjack is played with a "deck" (pile) of 52 cards. The front of each card shows symbols and numbers that identify the card. The back of each card is identical, so that you cannot tell which card it is by looking at the back. Each card has one of 4 possible "suits": spades, hearts, clubs, or diamonds. Each suit has its own special symbol. Spade and club cards have black symbols and numbers on the front, while heart and diamond cards have red symbols. Each card also has one of 13 possible "faces": ace (A), 2, 3, 4, 5, 6, 7, 8, 9, 10, jack (J), queen (Q), or king (K). The face of a card determines its numerical scoring value. Numbered cards are worth their number of points. Jacks, queens, and kings are all worth 10 points each. Aces can be worth 1 point or 11 points, depending on the circumstances.
+
+A player's "hand" is the set of cards the player currently holds. The score of the hand is the sum of the point values of its cards. The goal in blackjack is to acquire a hand whose score is as high as possible without going over 21. The point value of an ace card is whatever is most advantageous to the player: 1 or 11, whichever would bring the score of the player's hand closer to 21 without exceeding it.
+
+A game of blackjack may involve any number of players (but for our purposes, three or fewer), and always exactly one "dealer": the person who "deals" (hands out) the cards. Players compete against the dealer, not against each other. A player's goal in a round of blackjack is to have a higher score than the dealer, without going over 21 ("busting").
+
+Each round of simplified blackjack proceeds as follows:
+
+    The dealer shuffles the deck and deals two cards "face up" (with the front of the card showing) to each player.
+    The dealer deals one card "face down" (with only the back showing) and one card "face up" to himself.
+    The dealer asks the first player whether she wishes to "hit" (receive another card) or "stand" (not receive any more cards).
+        If she chooses to stand, she will not receive any more cards this round, so her score is fixed. The game moves on to the next player.
+        If she chooses to hit, the dealer will deal her another card, face up, and her score increases. She will then be given the option to hit or stand again.
+        If her score exceeds 21, she has "busted" and immediately loses this round - play will continue with the next player.
+        Essentially, the player can continue to hit until she either decides to stand, or busts.
+    The hit-or-stand process is then repeated for each other player.
+    Once all players are done, it is the dealer's turn to play. First, he turns his face-down card over. Then he hits until his score is 17 or higher. The dealer cannot decide to hit or stand arbitrarily. If his score is less than 17, he must hit. If it is 17 or higher, he must stand.
+    If the dealer busts, any players who did not bust earlier win this round. Otherwise, each player's score is compared to that of the dealer. A player wins if he has a higher score than the dealer, loses if he has a lower score, and "pushes" (ties) if he has the same score.
+
+At the end of each round, the group of players can decide whether they would like to play again.
+
+Deliverables:
+
+At the end of the 4 week project, you will be graded on the following deliverables.
+
+    Source code – the code you write to accomplish the project
+    Program Demo – show your peer leader a demo of your code
+    Code Review – describe some of your code to your peer leader
+    Documentation – a 1-2 pg document that outlines the challenges you faced working on the project, the interesting lessons learned, and the thinking behind the main algorithms. Also, you are to analyze the efficiency of the various algorithms that you implement. It might be useful to keep a project diary as you move through the project
+
+Milestones
+
+In order to help you make forward progress, your peer leaders will ask that you complete one of each of these milestones every week. While your progress is not graded, we strongly urge you to have your milestones completed in time. In face, it is advisable to go ahead  and complete milestones earlier than the guidelines below.
+
+ 
+
+Week 1: Create a deck, Shuffle a deck, Deal a card, create a simple text based game engine. +25/10 points
+
+You are given the Card class that has 2 methods and a constructor; int getFace(); int getValue(); Constructor: Card(int suit, int value).
+
+Suits are given by the following constants: Card.SPADES, Card.HEARTS, Card.DIAMONDS, Card.CLUBS.
+
+Values are given by the numbers 1 – 13 (Ace to King)
+
+The method createCardArray() should return an array of 52 cards representing Ace through King for all 4 suits. Cards should be in order i.e. A-K of Spades, then A-K of Diamonds, then A-K of Clubs, then A-K of Hearts.
+
+The method shuffle(Card[] cardArray) should take an array of 52 cards, and shuffle all the cards into some random order. Math.rand() might be useful to you here. After calling this method all cards in cardArray should be mixed.
+
+You are given a Deck class now. The constructor takes a card array. The methods available to you in Deck are: Card deal(); boolean isEmpty();
+
+Create a simple game engine that “deals” cards to 2 players. Continue to deal until either player busts, or when each player has requested a “stand”. You will need to show the player’s cards and ask if the user wants to hit or stand. You should not ask if the user has already busted. Determine the outcome of the game and print who won. Expand this game to N players.
+
+ 
+
+Week 2-3 Add some money, Create a hints system + 65/65 pts
+
+Now that you have the basics of the game play, expand your game to include a wagering system. Give each player a bankroll to start with, then allow him/her to wager on the game. You can and should look to real blackjack games for inspiration and wagering rules. (Double down, splits, blackjacks, etc) play a few hands and try your luck. (You can make one player the “dealer” and play solely by house dealer rules (hit/stand on soft 17s). Get a feel for what good strategy is and see how much you win/lose over 10 rounds.
+
+Basic wagering system +20/65 pts
+
+If you implement the advanced play, +20/65 pts (allowing players to double down, split, insurance)
+
+The next step is to build in a hints system. Here you will advise the players what their “best” course of strategy is. You can use any strategy you choose, but be prepared to defend your decision! You can start off your hints system by just giving general playing advice based on the rules of the game, and maybe your feelings of what might be a good system, perhaps from your very limited experiences from your experiments above. Later on, it is probably a good idea to include some probability into the mix. Eventually, a card counting strategy (remembering what cards have come out) would be best.
+
+Basic hints: + 5/65 pts
+
+Basic static probabilities based on hand values: +20/65 pts
+
+EXTRA CREDIT: Card counting + probability based on card counting: +10 pts
+
+ 
+
+Week 3 – 4 Catch up, GUI Stuff +15 pts (EXTRA CREDIT)
+
+You will be given a shell of a GUI (like in the maze hw assignment). Here you can fill in as much or as little of your game engine that you wish. 15 pts is only for the base GUI (meaning the player can choose to hit/stand, and you report the result of the round). If you implement any of the other features you’ve developed in the sections above as a GUI, you are welcome to, but it is for your own enjoyment and sense of fulfillment.
+
+ 
+Suggested Implementation
+
+Given the attached skeleton, below is the suggest way of completing the skeleton methods. Again, you can choose to ignore all of this and just use what you need for your project. It is entirely up to you.
+
+For each class, define fields to store the information that each object of that class needs.
+
+Each method in each file is commented to explain what it should do, what its arguments mean, and what it should return (if anything). Complete all required methods.
+
+It is highly recommended that you complete the code in the following order, testing each class individually using your own driver:
+
+    Card
+    Deck
+    Hand
+    Player
+    Blackjack
+
+Use the following algorithms:
+Deck constructor
+
+create an array to hold cards
+for each possible suit (spades, hearts, clubs, diamonds)
+	for each possible face (ace through king)
+		create a card with the current suit and face and add it to the array
+record that there are 52 cards in the deck
+
+Deck.shuffle
+
+for each card c in deck d:
+	choose a random position p in the deck (how to use Random)
+	swap c with the card at position p
+
+Hand.getScore
+
+add up the values of the cards in the hand
+determine whether the hand contains an ace
+if there is an ace and changing the ace's value from 1 to 11 would increase the player's score (without exceeding 21)
+	increase the score by 10
+
+Player.startRound
+
+if the player is the dealer,
+	deal one card FACE UP and one card FACE DOWN to the player
+else
+	deal two cards FACE UP to the player
+
+Player.playRound
+
+if the player is the dealer,
+	draw cards until score is at least 17
+else
+	until user "busts" (goes over 21) or wants to "stand" (stop drawing cards)
+		ask the user if he or she wants to "hit" (draw another card)
+		if the user wants to hit
+			draw a card
+	if the user busted
+		display message that user busted and therefore lost this round
+
+Player.finishRound
+
+if the player is not the dealer,
+	if busted
+		display message that player lost
+	else if dealer busted
+		display message that player won
+	else
+		display message win, lose, or push (depending on player's score relative to dealer)
+discard all cards
+
+Blackjack.main
+
+ask the user how many players want to play
+create Player objects for each player (ask user for player's name) and the dealer
+create a BlackjackWindow
+until the user wants to quit
+	play a round
+close the window
+
+Blackjack.playRound
+
+create and shuffle a deck
+for each player
+	start round (deal first two cards)
+for dealer, start round (deal first two cards)
+for each player
+	let player play round
+for dealer, play round
+for each player
+	finish round (announce results, discard cards)
+for dealer, finish round (discard cards)

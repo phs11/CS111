@@ -1,0 +1,86 @@
+ Instructions
+Assignment 10
+
+Frequently Asked Questions
+Files to download and complete:  See attached files below
+Overview
+
+ You are not required to submit test cases, though of course you should construct a good set of test cases in order to test your own code.
+
+Since these are classes and not complete programs, they will not have a main method, and will not interact directly with a human user. Therefore, you should NOT use the IO module in any of the methods you write. Data needed by a method is already provided by its arguments, and results of a method should be returned as the method's value. If you wish to write your own driver programs to test your classes, you may use the IO module in those programs.
+
+Do not use any classes or modules from outside java.lang (do not import any libraries). We want you to learn how to implement these operations on your own. You may use modules (such as Math) and classes (such as String) from the Java library that you have learned.
+Error conditions
+
+Use the following error-indicator values for all methods:
+
+Method's return type
+	
+
+Return value on error
+
+void
+	
+
+none, do not perform action
+
+int, double
+	
+
+-1
+
+boolean
+	
+
+false
+
+any object type
+	
+
+null
+
+Since we have not yet learned how to deal with error conditions in constructor methods, you may assume that all inputs to your constructors will be valid. You MAY NOT assume this for other methods, however.
+ 
+Problem 1
+
+ Write your code in the file VendingMachine.java.
+
+A VendingMachine object represents a vending machine that sells products like candy or soda. It has a fixed number of slots, each of which can hold one kind of product for sale. For example, a machine might have 10 Snickers bars in slot 0 and 7 cans of Pepsi in slot 1, but it cannot have some Snickers and some Pepsi in the same slot. There is a maximum number of items that can fit into any one slot - for example, if the maximum was 10, no more Snickers could fit into slot 0. The same kind of product can be in more than one slot, however. The machine must keep track of the name, price, and current quantity of each product, as well as the amount of cash in the machine.
+
+Slots of the vending machine are be numbered starting at zero.
+
+Define appropriate fields, and complete the following methods of VendingMachine:
+
+    VendingMachine(int numslots, int maxperslot, double cash) (constructor): Takes the number of slots in the vending machine, the maximum number of items that can fit into any one slot, and the amount of cash in the machine initially. This is the constructor method.
+
+    void setProduct(int slot, String product, double price): Make the given slot hold items of the specified kind of product, sold for the given price. The initial quantity of the product in this slot should be zero. If the slot already held another kind of product, the old product should be removed from this slot.
+
+    void restockProduct(String product, int quantity): Add the given quantity of the specified product to the vending machine. Put as many of the items as possible into the first slot that has been designated to hold that particular kind of product (using setProduct()). If not all of the items will fit into the first slot, put as many of the rest as possible into the second slot that holds that kind of product, etc. For partial credit, your method should at least be able to find the first slot designated for the specified product and put all of the items there.
+
+    double getCashOnHand(): Return the amount of cash now in the vending machine (this amount should increase whenever an item is purchased).
+
+    int getQuantity(int slot): Return the number of items in the given slot.
+
+    int getQuantity(String product): Return the total number of items of the specified kind of product that are in the vending machine. Remember that this product may be in more than one slot. If the product is not in the vending machine at all, simply return zero.
+
+    boolean buyItem(int slot): Attempt to buy one item from the given slot. Return true if successful.
+
+You should write your own test driver to test your class. The following attached program will get you started: vmd.java.
+Frequently Asked Questions
+VendingMachine
+
+Q. What should restockProduct do if the argument 'quantity' is larger than the total of all the remaining space in all the slots assigned to the given product?
+
+A. This is an error. Do not change the state of the vending machine.
+
+Q. Can we change the item in the slot once it's been initialized? Meaning if I defined a slot as having Pepsi, can I later overwrite it and say that that slot actually has Snickers?
+
+A. Yes. If this happens, the quantity of items in the slot should be reset to zero.
+
+When restocking a product that is present in more than one slot, is it necessary to make sure that the prices, as well as the names, are identical?
+
+A. No, only the product name has to match.
+
+Q. In getQuantity(String product) if we inquire about a non-existing product, do we consider that an error and return -1 or should we consider this as a valid inquiry and return 0?
+
+A. Do not treat this as an error, but simply return 0.

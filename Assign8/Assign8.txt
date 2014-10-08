@@ -1,0 +1,95 @@
+ Instructions
+Assignment 8
+Overview
+
+For this assignment, you will develop Java methods as part of a single software application. You will also perform some efficiency analysis. You will not have to submit test cases, although you should test your code thoroughly using a good set of test cases.
+Error conditions
+
+ 
+Method's return type 	Return value on error
+void 	none, do not perform action
+int, double 	-1
+boolean 	false
+any object type 	null
+Problems
+Problem 1
+
+Write your code in the file RegOps.java. DO NOT EDIT any other .java file given to you.
+Problem description
+
+You will build part of a college's course registration system (similar to WebReg, though considerably less complex). The system will keep track of a catalog of courses that students can take. It will allow the user (a student) to view and search the course catalog, and to add (register for) and drop (withdraw from) courses.
+
+The file catalog.txt contains a sample course catalog. You may edit this file if you wish. If you add entries to it, be sure they follow the same format as the entries already in the file.
+
+The following rules apply:
+
+    All courses meet only once per week, for one class period.
+    Days will be denoted by the following letters: M - Monday, T - Tuesday, W - Wednesday, H - Thursday, F - Friday, S - Saturday. There are no Sunday courses.
+    Class periods are numbered from 1 to 9.
+    A student cannot register for a course that is not in the catalog.
+    There is a limit on the number of courses a student may take in one semester.
+    There is NO explicit limit on the number of credits a student may carry in one semester.
+    A student cannot register for two courses that meet on the same day and time.
+
+Code structure
+
+The user interface has been written for you in RegApp.java. This program handles all keyboard and file input, and all screen output. You will complete the methods in RegOps.java, which are designed to perform actions such as searching and sorting the catalog.
+
+RegApp.java first reads the catalog from catalog.txt, then asks the user for the maximum number of courses that any student is allowed to take in one semester. It then shows the user a menu from which they can choose various options. In most cases, RegApp will call methods from RegOps to execute the option chosen by the user.
+
+Course.java contains the definition of a class called Course. A Course object represents an entry for a course in the catalog. Each Course object keeps track of the name of a course, its course number (department and individual course number), the day of week and class period at which the course is scheduled, and the number of credits earned for completing the course. It offers the following methods:
+
+    public int getDepartment(): Retrieves the department number of the course (e.g., 198 in "198:111 Introduction to Computer Science").
+    public int getCourseNumber(): Retrieves the course number of the course (e.g., 111 in "198:111 Introduction to Computer Science").
+    public String getName(): Retrieves the name of the course.
+    public char getDay(): Retrieves the day of week code (M, T, W, H, F, or S) for the day on which the course meets.
+    public int getPeriod(): Retrieves the class period at which the course meets.
+    public int getCredits(): Retrieves the number of credits earned for completing the course.
+    public void print(): Outputs the course listing in a way that can be read by our grading program.
+    public boolean equals(Course other): Tests whether this object and the given other object represent the same course. It checks whether the department number and individual course number are the same.
+
+The catalog will be represented as an array of Course objects. RegApp reads the catalog from the file catalog.txt.
+
+A student's schedule will be represented as an array whose length is the maximum number of courses that any student is allowed to take in one semester. Courses for which the student registers should be placed into the array starting at index 0. Empty (unused) entries in the array should remain null; all empty entries should be on the right side of the array (there should be no "gaps" between used entries). For example, if the maximum number of courses allowed is 8 and the student is currently taking 5 courses, the schedule array would be of size 8, entries 0 through 4 would contain Course objects, and entries 5 through 7 would contain null. This should be the case regardless of the sequence of adds and drops the student performed in order to create his or her current schedule.
+Implementation
+
+Complete the following methods of RegOps:
+
+    public static void sortByNumber(Course[] catalog):
+    Sort the catalog into ascending order by department and course number (i.e., courses should be ordered by department number, and courses in the same department should be ordered by individual course number).
+    You may use any sorting algorithm that you wish.
+    public static void sortByTime(Course[] catalog):
+    Sort the catalog into chronological order by meeting day and time (i.e., courses should be ordered by the day of week on which they meet, and courses that meet on the same day should be ordered by the class period at which they meet).
+    You may use any sorting algorithm that you wish.
+
+Remember to test each of your methods thoroughly by running RegApp.
+Problem 2
+
+Write your answers in the file assign8-problem2.txt.
+
+    Trace selection sort on the following array of letters (sort into alphabetical order):
+
+    M U E J R Q X B
+
+    After each pass (outer loop iteration) of selection sort, show the contents of the array and the number of letter-to-letter comparisons performed on that pass (an exact number, not big-O).
+    Trace insertion sort on the following array of letters (sort into alphabetical order):
+
+    M U E J R Q X B
+
+    After each pass (outer loop iteration) of insertion sort, show the contents of the array and the number of letter-to-letter comparisons performed on that pass (an exact number, not big-O).
+
+For each problems segment given below, do the following:
+
+    Create an algorithm to solve the problem
+    Identify the factors that would influence the running time, and which can be known before the algorithm or code is executed. Assign names (such as n) to each factor.
+    Identify the operations that must be counted. You need not count every statement separately. If a group of statements always executes together, treat the group as a single unit. If a method is called, and you do not know the running time of that method, count it as a single operation.
+    Count the operations performed by the algorithm or code. Express the count as a function of the factors you identified in Step 2. If the count cannot be expressed as a simple function of those factors, define the bounds that can be placed on the count: the best case (lower bound) and worst case (upper bound).
+    Determine what the Best Case Inputs are, and the Worst Case Inputs are, and the efficiency of your implementation
+    Transform your count formula into big-O notation by:
+        Taking the efficiency with worst case input,
+        Dropping insignificant terms.
+        Dropping constant coefficients.
+
+a. Determine if 2 arrays contain the same elements
+b. Counting total number characters that have a duplicate within a string (i.e. "gigi the gato" would result in 7 (g x 3 + i x 2 + t x 2)
+c. Finding an empty row in a 2-D array where empty is defined as an element with a 0 entry.

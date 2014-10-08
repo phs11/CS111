@@ -1,0 +1,15 @@
+Omar Ahmadi
+Assignment 9
+
+problem 2:
+---------
+
+Efficiency Analysis:
+
+Compare the length of rows in matrix one and make sure it equals the length of columns in matrix two.
+
+Count the three for loops (loops through m1Rows, m2Columns, and m2Rows).
+
+Input size n equals the length of row a and q equals the length of column b.
+If the input size is large then the run time will be longer.
+The worst case in Big-Oh: O(a*b*c).

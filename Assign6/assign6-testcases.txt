@@ -1,0 +1,127 @@
+Omar Ahmadi
+Assignment 6
+
+problem 1: Finance.java
+---------
+(computeApy)
+
+Test case 1:
+
+(compounded monthly)
+INPUT:
+double = 5.5
+int = 2
+OUTPUT:
+double 5.64
+
+
+Test case 2:
+
+(compounded daily)
+INPUT:
+double 50.00
+int 1
+OUTPUT:
+double 64.82
+
+Test case 3:
+
+(compounded yearly)
+INPUT:
+double 4.2
+int 3
+OUTPUT:
+double 4.2
+
+Test case 4:
+
+(compounded error)
+INPUT:
+double 5.5
+int 10
+OUTPUT:
+double -1.0 (Error)
+
+Test case 5:
+
+(annualRate error)
+INPUT:
+double 12345
+int 2
+OUTPUT:
+double -1.0 (Error)
+
+(computeLoanPayment)
+
+Test case 1:
+
+(biweekly payments)
+INPUT:
+double 20000.00
+double 7.5
+double 15.00
+int = 1
+OUTPUT:
+double 85.49
+
+Test case 2:
+
+(monthly payments)
+INPUT:
+double = 20000.00
+double = 7.5
+double = 15.00
+int = 2
+OUTPUT:
+double 185.4
+
+Test case 3:
+
+(quarterly payments)
+INPUT:
+double = 20000.00
+double = 7.5
+double = 15.00
+int = 3
+OUTPUT:
+double 558.08
+
+Test case 4:
+
+(paymentOption error)
+double = 20000.00
+double = 7.5
+double = 15.00
+int = 12345.00
+OUTPUT:
+double -1.0 (Error)
+
+Test case 5:
+
+(annualRate error)
+double = 20000.00
+double = 12345.00
+double = 15.00
+int = 1
+OUTPUT:
+double -1.0 (Error)
+
+Test case 6:
+
+(negative principal)
+double = -20000.00
+double = 12345.00
+double = 15.00
+int = 1
+OUTPUT:
+double -1.0 (Error)
+
+Test case 7:
+
+(negative yearsDuration)
+double = 20000.00
+double = 12345.00
+double = -15.00
+int = 1
+OUTPUT:
+double -1.0 (Error)

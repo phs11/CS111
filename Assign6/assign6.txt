@@ -1,0 +1,80 @@
+ Instructions
+Assignment 6
+Overview
+
+For this assignment, you will develop Java programs to solve several problems. You will also write test cases with which to test the solutions.
+
+If you know some Java already, you may use advanced features that we have not covered in class yet (though it is not necessary to do so). However, you may NOT use any modules or classes from outside java.lang (do not add any "import" statements to your programs).
+Problems
+Problem 1 [Writing Methods]
+
+You will NOT need the IO module for this Problem. Since you are writing methods (that interact with a calling program, not a human user) DO NOT use the IO module. The inputs you need will be provided to you through the method's arguments. Output should be returned using the return statement. Error conditions should be reported by returning an appropriate value.
+
+We have created "skeleton" Java file which you will fill in. These are linked in the "Attachments" section, below. Download these files and fill in code where specified. You should test your methods by writing code in main() (either in the same file or a different file) to call your methods and execute your chosen test cases.
+Write your code in the file Finance.java. Write your test cases in assign6-testcases.txt.
+
+You will write methods that perform financial calculations. Interest rates will be expressed as percentages out of 100. For example, 2.45% will be expressed as the number 2.45, not 0.0245. If you detect an error condition, return -1.
+
+    public static double computeApy(double annualRate, int compoundingOption): Compute the Annual Percentage Yield (APY) on a deposit account using the following formula: APY formula (use the first formula listed on this page). The compounding option can be one of the following values:
+        1 -> daily
+        2 -> monthly
+        3 -> annually
+    public static double computeLoanPayment(double principal, double annualRate, double yearsDuration, int paymentOption): Compute the periodic payment needed to repay a loan, using the following formula: periodic payment formula. The payment option can be one of the following values:
+        1 -> biweekly (every two weeks - assume a year is exactly 52 weeks)
+        2 -> monthly
+        3 -> quarterly (four times a year)
+
+Here are some test cases to help you debug your programs:
+
+    Finance.computeApy(5.50, 1) == 5.65
+
+    Finance.computeApy(5.50, 2) == 5.64 
+    Finance.computeLoanPayment(20000.00, 7.5, 15.0, 1) == 85.49 
+
+You do not have to submit a main method, but it would probably be helpful for you to write one to test your code. Alternatively you can test your code using a different program, using method calls like above.
+
+ 
+Problem 2
+
+Write your code in the file SolveMaze.java.
+
+We have given you a Java class, Maze, which draws a maze puzzle in a window. You will write code to solve the maze (find a path through the maze to a destination). This class is in Maze.java and its documentation is in Maze.html.
+
+When a Maze object is created, a pseudorandom maze based on a certain integer "seed" is generated. The seed is printed onscreen so that you can generate the same maze again if you wish (this is very useful for debugging). Your maze-solving program must work for any seed.
+
+Navigation of the maze begins in the northwest corner. The goal is to reach the southeast corner of the maze. The path taken is drawn as a red line. You may move north, south, east, or west. You may not move through walls. At any given time, you can look to see whether there is a wall next to you in any particular direction.
+
+The Maze class provides the constants Maze.NORTH, Maze.SOUTH, Maze.EAST, and Maze.WEST. These are actually ints, but you do not need to know their integer values. (By analogy, think of the constant Math.PI. You know that this is a double, but you do not need to know its exact value in order to use it.) Directions given as inputs to the methods of Maze should be expressed in terms of these constants.
+
+A number of maze-solving algorithms exist. In particular we recommend "following the wall" (this is also known as the "left-hand rule"):
+
+    Throughout this algorithm, keep track of which direction you are "facing". Start by facing east. There will be a wall to your left (north).
+    Until you reach your destination:
+        If there is a wall in front of you:
+            Turn right (clockwise 90 degrees).
+        On the other hand, if there is no wall in front of you:
+            Move forward one step.
+            If there is now no wall to your left, turn left (counterclockwise 90 degrees).
+
+ 
+Problem 3
+
+More method practice. In the file provided, fill out the requested methods. Namely:
+
+    public static int numVowels(String s)
+
+              Counts the number of vowels in the String s, returns said number
+
+    public static boolean isSquared(int x)
+
+             Determines if the number x is a square of another number. i.e. would return false for 2,3,5; would return   true for 4,9,16
+
+    public static String reverse(String s)
+
+          creates and returns the string s in reverse
+
+    public static boolean isReversed(String s, String t)
+
+          given 2 strings s and t, determines if they are reversed versions of each other.
+
+You do not have to fill in main(), but it would probably be useful for you to test your methods.
